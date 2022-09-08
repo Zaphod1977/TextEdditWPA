@@ -29,7 +29,7 @@ export const getDb = async () => {
   const tx = contactDb.transaction('text_db', 'readonly');
 
   // Open up the desired object store.
-  const store = tx.objectStore('files');
+  const store = tx.objectStore('jate');
 
   // Use the .getAll() method to get all data in the database.
   const request = store.getAll();
@@ -43,7 +43,7 @@ export const getDb = async () => {
 // EXPORTED CREATE function
 
 // Export a function we will use to POST to the database.
-export const postDb = async (content)  => {
+export const putDb = async (content)  => {
   console.log('Post to the database');
 
   // Create a connection to the database database and version we want to use.
@@ -53,7 +53,7 @@ export const postDb = async (content)  => {
   const tx = contactDb.transaction('text_db', 'readwrite');
 
   // Open up the desired object store.
-  const store = tx.objectStore('files');
+  const store = tx.objectStore('jate');
 
   // Use the .add() method on the store and pass in the content.
   const request = store.add({ content: content });
@@ -75,7 +75,7 @@ export const deleteDb = async (id) => {
   const tx = contactDb.transaction('text_db', 'readwrite');
 
   // Open up the desired object store.
-  const store = tx.objectStore('files');
+  const store = tx.objectStore('jate');
 
   // Use the .delete() method to get all data in the database.
   const request = store.delete(id);
@@ -94,7 +94,7 @@ export const editDb = async ( content ) => {
 
   const tx = contactDb.transaction('text_db', 'readwrite');
 
-  const store = tx.objectStore('files');
+  const store = tx.objectStore('jate');
   
   const request = store.put({ content: content });
   const result = await request;
