@@ -1,0 +1,19 @@
+{
+  "name": "textedditwpa",
+  "version": "1.0.0",
+  "description": "Progressive Web Applications (PWA) Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zaphod1977/TextEdditWPA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zaphod1977/TextEdditWPA/issues"
+  },
+  "homepage": "https://github.com/Zaphod1977/TextEdditWPA#readme"
+}
