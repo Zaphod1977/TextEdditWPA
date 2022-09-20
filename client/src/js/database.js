@@ -24,10 +24,20 @@ export const putDb = async (content)  => {
   const tx = jateDb.transaction('jate', 'readwrite');
 
   // Open up the desired object store.
-  const store = tx.objectStore('text');
+  const store = tx.objectStore('jate');
 
   // Use the .add() method on the store and pass in the content.
-  const request = store.add({ content:content });
+  const request = store.get( "jate" );
+
+  // Store found and used
+  request.onsuccess = ()=> {
+    const data = request.result;
+    data.content = content;
+    store.put(data)
+  }
+  request.onerror = ()=> {
+    store.put({ "jate":content })
+  }
 
   // Get confirmation of the request.
   const result = await request;
@@ -46,7 +56,7 @@ export const getDb = async () => {
   const tx = jateDb.transaction('jate', 'readonly');
 
   // Open up the desired object store.
-  const store = tx.objectStore('text');
+  const store = tx.objectStore('jate');
 
   // Use the .getAll() method to get all data in the database.
   const request = store.getAll();
@@ -54,7 +64,9 @@ export const getDb = async () => {
   // Get confirmation of the request.
   const result = await request;
   console.log('result.value', result);
-  return result;
+  return result[0];
 };
+
+console.log("database js is running");
 
 initdb();

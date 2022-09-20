@@ -21,6 +21,8 @@ mongoose.connect(MONGODB_URI, {
   useFindAndModify: false
 });
 
+console.log("mongoose.connection.collections");
+
 // routes
 app.use(require("./routes/api.js"));
 
