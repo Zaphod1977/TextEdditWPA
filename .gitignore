@@ -1,1 +1,3 @@
 node_modules
+
+command to start app from root: npm run start:dev
