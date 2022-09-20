@@ -14,7 +14,7 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 
-export const putDb = async (content)  => {
+export const putDb = async (content) => {
   console.log('Post to the database');
 
   // Create a connection to the database database and version we want to use.
@@ -27,20 +27,19 @@ export const putDb = async (content)  => {
   const store = tx.objectStore('jate');
 
   // Use the .add() method on the store and pass in the content.
-  const request = store.get( "jate" );
-
-  // Store found and used
-  request.onsuccess = ()=> {
-    const data = request.result;
-    data.content = content;
-    store.put(data)
-  }
-  request.onerror = ()=> {
-    store.put({ "jate":content })
-  }
+  const request = store.getAll();
 
   // Get confirmation of the request.
   const result = await request;
+  if (result[0]) {
+    console.log("if side");
+    const data = result[0];
+    data.content = content;
+    store.put(data)
+  } else {
+    console.log("else side");
+    store.add({ jate: "jate", content:content })
+  }
   console.log('🚀 - data saved to the database', result);
 };
 

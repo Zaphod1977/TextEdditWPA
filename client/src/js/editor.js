@@ -27,7 +27,7 @@ export default class {
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
       console.log(data);
-      const text = data ? data.jate : ""
+      const text = data ? data.content : ""
       this.editor.setValue(text || localData || header);
     });
 
