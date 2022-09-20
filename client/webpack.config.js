@@ -32,12 +32,12 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('src/images/icon-manifest.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
           {
-            src: path.resolve('src/images/icon-manifest.png'),
+            src: path.resolve('src/images/logo.png'),
             size: '1024x1024',
             destination: path.join('assets', 'icons'),
             purpose: 'maskable'
